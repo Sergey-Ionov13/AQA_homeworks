@@ -22,6 +22,7 @@ jobs:
         working-directory: ./calculator
         run: npm i
       - name: Lint app
+        working-directory: ./calculator
         run: npm run lint
 
   app_test_unit:
@@ -38,4 +39,5 @@ jobs:
         working-directory: ./calculator
         run: npm i
       - name: Test app
+        working-directory: ./calculator
         run: npm run test
