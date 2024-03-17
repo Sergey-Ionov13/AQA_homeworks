@@ -1,13 +1,12 @@
 name: UnitTests
 
-on: [
+on:
   pull_request:
     branches:
-      - ‘unit_tests’
-    push:
-      branches:
-        - ‘unit_tests’
-]
+      - 'unit_tests'
+  push:
+    branches:
+      - 'unit_tests'
 
 jobs:
   app_lint:
