@@ -1,0 +1,43 @@
+name: UnitTests
+
+on:
+  pull_request:
+    branches:
+      - 'unit_tests'
+  push:
+    branches:
+      - 'unit_tests'
+
+jobs:
+  app_lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get repository code
+        uses: actions/checkout@v4
+      - name: Install node
+        uses: actions/setup-node@v4
+      - name: Change directory
+        run: cd ./calculator
+      - name: Install dependencies
+        working-directory: ./calculator
+        run: npm i
+      - name: Lint app
+        working-directory: ./calculator
+        run: npm run lint
+
+  app_test_unit:
+    needs: app_lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get repository code
+        uses: actions/checkout@v4
+      - name: Install node
+        uses: actions/setup-node@v4
+      - name: Change directory
+        run: cd ./calculator
+      - name: Install dependencies
+        working-directory: ./calculator
+        run: npm i
+      - name: Test app
+        working-directory: ./calculator
+        run: npm run test
