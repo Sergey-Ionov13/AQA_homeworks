@@ -11,6 +11,6 @@ describe('API USER DELETE tests', function () {
     });
 
     test('DELETE /api/v1/Users/{id} should be status 200', async () => {
-        expect(result.status).toEqual(200)
+        expect(result.status).toEqual(200);
     });
 });
